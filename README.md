@@ -39,10 +39,12 @@
 
 ## What This Does
 
-<!-- Your community, and what your classifier sorts posts into. Three or four
-     sentences. -->
-
-
+TakeMeter reads posts from Central Florida Reddit (r/orlando and r/centralflorida)
+and sorts each one by what it is doing: arguing with evidence (`analysis`), asserting
+without support (`hot_take`), responding in the moment (`reaction`), asking for or
+passing on information (`explainer`), telling a story (`anecdote`), or selling
+something (`advertisement`). Local subs mix all six in one feed, so the label tells a
+reader whether a post is worth arguing with, answering, or skipping.
 
 ---
 
@@ -150,91 +152,114 @@ If the facts are the whole point (what happened, what it costs, how to do it), i
 
 ## The Dataset
 
-<!-- Where you collected from, how you labelled, your counts, and three hard
-     cases. -->
+**Where the posts came from:** 215 posts from r/orlando and r/centralflorida, all posted
+between 2 January and 14 October 2026. The first 200 came from each subreddit's top
+posts of the year. Reddit's API blocks my machine, so the rest came from the Arctic
+Shift Reddit archive (`collect_more.py`, `find_ads.py`), newest first; ads were allowed
+to include mod-removed posts, because that is where most ads end up. The `text` column is
+the real post: title plus body, or the title alone for link and image posts.
 
-**Where the posts came from:**
-
-**How I labelled them:** <!-- Cold first? Pre-labelled with AI and corrected?
-Say so plainly — the disclosure is required, not penalised. -->
+**How I labelled them:** Pre-labelled with AI, then reviewed. TypeSafe's Jev model
+labelled every post with one six-way question built from the definitions above
+(`prelabel.py`). I reviewed the labels, least-confident first, and kept all 215 of
+Jev's labels unchanged. The first pass gave 136 of 200 posts to `explainer`, so I cut
+`explainer` to a random 40 and kept pulling posts until every other label had 35.
 
 **Counts per label:**
 
 | Label | Count | Share |
 |---|---|---|
-|  |  |  |
-|  |  |  |
-|  |  |  |
-| **Total** |  | 100% |
+| `explainer` | 40 | 18.6% |
+| `analysis` | 35 | 16.3% |
+| `hot_take` | 35 | 16.3% |
+| `reaction` | 35 | 16.3% |
+| `anecdote` | 35 | 16.3% |
+| `advertisement` | 35 | 16.3% |
+| **Total** | 215 | 100% |
 
 **Three hard cases**
 
-<!-- Any post that made you pause: what it was, which two labels it could have
-     been, and what you chose. These are worth more than the easy 190. -->
-
 **1.**
-> *The post:*
+> *The post:* "Why does every dealership in the Orlando area suck. I've had my best luck with Mullinax Ford in Apopka and have went to them for my last 2 vehicles…"
 >
-> *Could have been:*
+> *Could have been:* `hot_take`, `explainer` (it is phrased as a question) or `anecdote` (it tells the writer's history with one dealer).
 >
-> *I chose, because:*
+> *I chose `hot_take`, because:* question 1 comes first, and "every dealership in the Orlando area sucks" is a position with no checkable support. The question mark is rhetorical.
 
 **2.**
-> *The post:*
+> *The post:* "Plans to charge for parking at Lake Baldwin park and dog park. They're going to charge for parking for non-Winter Park residents… I thought parks were free to the public? All this is going to do is cause people to park on the…"
 >
-> *Could have been:*
+> *Could have been:* `explainer` (it passes on local news) or `hot_take`.
 >
-> *I chose, because:*
+> *I chose `hot_take`, because:* my hardest-boundary rule asks what the writer wants me to think. The news is there to set up "all this is going to do is…", a prediction offered with no evidence.
 
 **3.**
-> *The post:*
+> *The post:* "Study places. We need more late night study places. WHY IS ORLANDO SO BEHIND ON EVERYTHING… can a rich person invest in a 3rd space we can use to study…"
 >
-> *Could have been:*
+> *Could have been:* `explainer` (a request) or `hot_take`.
 >
-> *I chose, because:*
+> *I chose `hot_take`, because:* "Orlando is behind on everything" is a general claim about the city, and the request is a wish rather than a question anyone could answer.
 
 ---
 
 ## The Training Run
 
-<!-- Your starting model, your settings, and anything you changed and why. -->
+**Base model:** `distilbert-base-uncased`
 
-**Base model:**
+**Settings:** 10 epochs, learning rate 5e-5, batch size 16, max length 128 tokens,
+seed 42. Trained on an Apple Silicon GPU (MPS), torch 2.14.1.
 
-**Settings:** <!-- epochs, learning rate, batch size, seed -->
+**Anything I changed from the defaults, and why:** The first run used the defaults
+(3 epochs, learning rate 2e-5) and learned nothing: training loss went from 1.80 to
+1.73, against 1.79 for guessing evenly across six labels, and the model predicted
+`explainer` for every post (accuracy 0.182, macro F1 0.051; committed as evidence).
+With 149 training posts and batches of 16, three epochs is only about 30 update steps.
+I raised it to 10 epochs at 5e-5. Training loss then fell to 0.28, but validation
+accuracy peaked at 0.636 after epoch 3 and ended at 0.485, so by the last epoch the model
+is memorising the training posts. The trainer keeps the final epoch, not the best one.
 
-**Anything I changed from the defaults, and why:**
+**Split sizes:** 149 train / 33 validation / 33 test, stratified. Test split per label:
+`analysis` 5, `hot_take` 6, `reaction` 5, `explainer` 6, `anecdote` 5, `advertisement` 6.
+Every label is under 8 in the test split, so one post moves a label's recall by about
+0.17 to 0.20, and per-label F1 will jump between seeds next unit.
 
-**Split sizes:** <!-- train / val / test, and per-label counts in the test
-split. If a label had fewer than about 8 in test, say so — it explains a lot
-of next unit's variance. -->
+**Result (seed 42, test split):** accuracy 0.364, macro F1 0.377.
 
+| Label | F1 |
+|---|---|
+| `advertisement` | 0.727 |
+| `hot_take` | 0.500 |
+| `analysis` | 0.364 |
+| `reaction` | 0.333 |
+| `anecdote` | 0.182 |
+| `explainer` | 0.154 |
 
+The most-confident third of test posts was *less* accurate (0.364) than the
+least-confident third (0.455). The biggest confusion is `reaction` vs `anecdote`
+(3 reactions predicted as anecdotes, 2 the other way): both are about the writer's own
+experience, and the only difference, how long ago it happened, is easy to cut off at 128
+tokens.
 
 ---
 
 ## How I Used AI
 
-<!-- Two specific moments — what you asked, what came back, what you changed.
-
-     ⚠️ Plus disclosure of any pre-labelling. If you had a model pre-label a
-     batch and then read and corrected every one, say that. It's an allowed
-     workflow and disclosing it costs you nothing. Not disclosing it is the
-     problem. -->
-
 **Moment 1**
 
-- *What I asked for:*
-- *What came back:*
-- *What I changed:*
+- *What I asked for:* Pre-label the first 200 posts with my labels so I could review instead of starting cold.
+- *What came back:* 136 of 200 posts (68%) labelled `explainer`, just under the notebook's 70% cap, with `anecdote` at 9 posts.
+- *What I changed:* I kept a random 40 explainers and had more posts collected and labelled until each other label reached 35. I also had every post's text switched from an AI summary to the real post, so the model couldn't learn "written like a summary" as a label cue.
 
 **Moment 2**
 
-- *What I asked for:*
-- *What came back:*
-- *What I changed:*
+- *What I asked for:* Replace `explainer` with `advertisement`.
+- *What came back:* Claude pointed out that `explainer` is the catch-all at the end of my decision order (questions, recommendation requests, news), so removing it would leave most posts with no label that fits.
+- *What I changed:* I kept `explainer` and added `advertisement` as a sixth label, checked first ("is it selling something the writer is connected to?"), then collected 35 ads.
 
-**Pre-labelling disclosure:**
+**Pre-labelling disclosure:** All 215 labels were pre-labelled by TypeSafe Jev
+(`prelabel.py`, `collect_more.py`, `find_ads.py`), with Claude (Claude Code) writing the
+scripts and drafting the label definitions with me. I reviewed the labels and kept every
+one of Jev's choices. Each row's `note` column records Jev's confidence for that post.
 
 <!-- ═══════════════════════ UNIT 6 — THE TEST ═══════════════════════
 
