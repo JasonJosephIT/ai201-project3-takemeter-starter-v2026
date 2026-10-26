@@ -1,18 +1,17 @@
 ---
 status: active
-progress: Unit 5 done (taxonomy, 215 labels, criteria, training, write-up); Unit 6 next
+progress: Unit 6 M1-M2 done; M3 (staff labels) waiting on me
 next_date:
 updated: 2026-10-26
 ---
 
 ## Now
-Unit 5 pushed to github.com/JasonJosephIT/ai201-project3-takemeter-starter-v2026. Seed 42: accuracy 0.364, macro F1 0.377 (target 0.70). Validation peaked at 0.636 after epoch 3, then overfit.
+Unit 6: baseline 0.182 vs trained 0.364 (seed 42). Three seeds 0.364 / 0.545 / 0.606 (spread 0.24). Criteria 1, 2, 5 MISSED, 3 MET, 4 pending. Biggest confusion reaction -> anecdote.
 
 ## Next
-- Unit 6 M1: run baseline.py.
-- Unit 6 M2: three seeds (RUN_LABEL = "before").
-- Candidate fix for M5: keep the best validation epoch (or ~4 epochs) instead of the last.
-- Spot-check low-confidence labels: some look wrong by my own decision order (e.g. 'He Was Found Dead Friday' labelled analysis).
+- M3: label the 30 posts in my_staff_labels.csv under data/staff_taxonomy.md, then get data/staff_labels.csv from the TF and run agreement.py.
+- M4: verdict + diagnosis per criterion, using the agreement report.
+- M5: one fix (candidates: relabel reaction/anecdote boundary, or keep best validation epoch), RUN_LABEL = "after".
 
 ## Decisions
 - 2026-10-26: Criteria set: accuracy >= 0.70, every label F1 >= 0.40, largest/smallest <= 1.25, staff agreement >= 22/30, confident third >= least-confident third + 0.15.
