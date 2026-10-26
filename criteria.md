@@ -51,63 +51,50 @@ whether you hit them:
 
 ---
 
-## 1.
+## 1. Overall accuracy is at least 0.70 on the test split, on all three seeds.
 
-<!-- Your criterion. It must name a number. -->
-
-
-
-**Why this target:**
-
-
-
----
-
-## 2.
-
-<!-- Your criterion. -->
-
-
-
-**Why this target:**
-
-
+**Why this target:** Six balanced labels mean always guessing the biggest label
+(`explainer`, 40 of 215) scores 18.6%, so 0.70 is almost four times that. It is
+the point where I'd trust the model to sort a feed: wrong on fewer than one post in
+three. It is ambitious for 215 rows pre-labelled by Jev and cut at 128 tokens, but
+most of my labels carry surface cues (prices and "free" for `advertisement`, "just
+saw" and "right now" for `reaction`, question marks and "recommendations" for
+`explainer`), so a fine-tuned model should get there if the labels are consistent.
 
 ---
 
-## 3.
+## 2. Every label has F1 of at least 0.40 on all three seeds.
 
-<!-- Your criterion. -->
-
-
-
-**Why this target:**
-
-
+**Why this target:** Each label has only about 5 posts in the test split (15% of 35),
+so a single mistake moves that label's recall by 0.20. The floor has to survive that
+noise, but 0.40 is still more than double the 0.17 of guessing at random. The label
+most at risk is `analysis`, which shares my hardest boundary with `explainer`:
+Orlando news posts are full of facts whether or not they argue anything.
 
 ---
 
-## 4.
+## 3. The largest label has at most 1.25 times the posts of the smallest.
 
-<!-- Your criterion. -->
-
-
-
-**Why this target:**
-
-
+**Why this target:** I cut `explainer` from 136 posts to 40 to rebalance, so the file
+sits at 40 / 35 = 1.14 now. Corrections during review can drift it back; past 1.25 the
+smallest labels start losing test posts they can't spare.
 
 ---
 
-## 5.
+## 4. I agree with the staff labels on at least 22 of 30 posts.
 
-<!-- Your criterion. -->
+**Why this target:** The staff taxonomy's three labels match my first three almost word
+for word, including the same `analysis` vs `hot_take` rule, so I should mostly agree.
+22 / 30 (73%) leaves room for the `reaction` vs `hot_take` boundary on running posts,
+which I never had to apply to Orlando ones.
 
+---
 
+## 5. Accuracy on the model's most-confident third of test posts is at least 0.15 higher than on its least-confident third, on all three seeds.
 
-**Why this target:**
-
-
+**Why this target:** The point of confidence is to flag posts for a person to check. If
+the sure third isn't clearly more accurate than the unsure third, the flag is useless.
+With about 11 posts per third, 0.15 is roughly two posts, the smallest gap I'd trust.
 
 ---
 
