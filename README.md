@@ -270,57 +270,88 @@ one of Jev's choices. Each row's `note` column records Jev's confidence for that
 
 ## Baseline vs. Trained
 
-<!-- Both models on the same posts. `python baseline.py --trained results.json`
-     prints this table for you. -->
+Both models on the same 33 held-out posts (`test_split.csv`, seed 42). Baseline is
+`facebook/bart-large-mnli` zero-shot, reading `label_definitions.txt`.
 
 | Measure | Baseline | Trained | Difference |
 |---|---|---|---|
-| Overall accuracy |  |  |  |
-| Macro F1 |  |  |  |
-| F1 — `label_one` |  |  |  |
-| F1 — `label_two` |  |  |  |
+| Overall accuracy | 0.182 | 0.364 | +0.182 |
+| Macro F1 | 0.102 | 0.377 | +0.275 |
+| F1 — `analysis` | 0.278 | 0.364 | +0.086 |
+| F1 — `hot_take` | 0.000 | 0.500 | +0.500 |
+| F1 — `reaction` | 0.333 | 0.333 | 0.000 |
+| F1 — `explainer` | 0.000 | 0.154 | +0.154 |
+| F1 — `anecdote` | 0.000 | 0.182 | +0.182 |
+| F1 — `advertisement` | 0.000 | 0.727 | +0.727 |
+
+**Bare label names instead of definitions** (`baseline_results_bare_names.json`):
+accuracy 0.212, macro F1 0.124. That is one post *better* than with my definitions, so
+on this baseline my definitions were worth -0.03 accuracy. The baseline slots each
+definition into "This post is {}.", and my definitions are clauses ("takes a position,
+and a specific checkable fact…"), so the hypothesis it tests isn't a sentence. The
+reported baseline above is the definitions run.
 
 **What I predicted before I looked:**
 The trained model will beat the baseline on `advertisement` and `hot_take`, where the label shows in the wording (prices, "free", events; all-caps complaints), and lose or tie on `explainer` and `anecdote`, where my definitions describe the post's purpose rather than its words.
 
 **What the gap actually means:**
-<!-- If the baseline matched your trained model, your fine-tuning added
-     nothing — and that is a real finding, not a failure. Say it plainly. -->
-
-
+Half right. The biggest gains were `advertisement` (+0.73) and `hot_take` (+0.50), as
+predicted, but the trained model also beat the baseline on `explainer` and `anecdote`,
+only because the baseline scored 0 on both; it never predicted them. The baseline's
+0.182 is the same as always guessing one label, so zero-shot NLI can't do this task at
+all, and the fine-tuning added a real but small amount on this split.
 
 ---
 
 ## Run Log — Before
 
-<!-- Five criteria across three seeds. The notebook's section 6 prints the
-     spread table; the Target and Verdict columns are yours. -->
+Five criteria across three seeds (`results_three_seeds_before.json`). Device: Apple
+Silicon GPU (MPS), torch 2.14.1. Settings: 10 epochs, learning rate 5e-5, batch 16.
 
 | Criterion | Target | Seed 42 | Seed 7 | Seed 2024 | Verdict |
 |---|---|---|---|---|---|
-| 1.  |  |  |  |  |  |
-| 2.  |  |  |  |  |  |
-| 3.  |  |  |  |  |  |
-| 4.  |  |  |  |  |  |
-| 5.  |  |  |  |  |  |
+| 1. Overall accuracy | ≥ 0.70 | 0.364 | 0.545 | 0.606 | MISSED |
+| 2. Every label F1 (lowest label) | ≥ 0.40 | 0.154 (`explainer`) | 0.400 (`explainer`, `anecdote`) | 0.286 (`reaction`) | MISSED |
+| 3. Largest / smallest label | ≤ 1.25 | 1.14 | 1.14 | 1.14 | MET |
+| 4. Agreement with staff labels | ≥ 22 / 30 | — | — | — | pending (Milestone 3) |
+| 5. Most-confident third minus least-confident third | ≥ +0.15 | -0.091 | +0.455 | +0.182 | MISSED |
+
+Spread across seeds:
+
+| Measure | Seed 42 | Seed 7 | Seed 2024 | Spread |
+|---|---|---|---|---|
+| Overall accuracy | 0.364 | 0.545 | 0.606 | 0.242 |
+| Macro F1 | 0.377 | 0.538 | 0.599 | 0.223 |
+| F1 — `analysis` | 0.364 | 0.462 | 0.571 | 0.208 |
+| F1 — `hot_take` | 0.500 | 0.444 | 0.750 | 0.306 |
+| F1 — `reaction` | 0.333 | 0.615 | 0.286 | 0.330 |
+| F1 — `explainer` | 0.154 | 0.400 | 0.545 | 0.392 |
+| F1 — `anecdote` | 0.182 | 0.400 | 0.533 | 0.352 |
+| F1 — `advertisement` | 0.727 | 0.909 | 0.909 | 0.182 |
+
+Accuracy moved 24 points across seeds, well over 10. With 5 or 6 test posts per
+label, the dataset is too small for a stable measure: which posts land in the test split
+decides most of the score.
 
 ### Confusion matrix
 
-<!-- ⚠️ TYPED AS A MARKDOWN TABLE. The notebook prints one ready to paste.
-     An image of a matrix earns nothing. -->
+Seed 42. Rows are true labels, columns are the model's guesses.
 
-| true \ predicted |  |  |  |
-|---|---|---|---|
-| **** |  |  |  |
-| **** |  |  |  |
-| **** |  |  |  |
+| true \ predicted | analysis | hot_take | reaction | explainer | anecdote | advertisement |
+|---|---|---|---|---|---|---|
+| **analysis** | 2 | 0 | 0 | 2 | 1 | 0 |
+| **hot_take** | 1 | 2 | 0 | 2 | 1 | 0 |
+| **reaction** | 0 | 0 | 2 | 0 | 3 | 0 |
+| **explainer** | 2 | 0 | 3 | 1 | 0 | 0 |
+| **anecdote** | 0 | 0 | 2 | 1 | 1 | 1 |
+| **advertisement** | 1 | 0 | 0 | 1 | 0 | 4 |
 
 **My biggest off-diagonal number, and what it means:**
-<!-- Not "the model made mistakes" — WHICH boundary it didn't learn, and which
-     direction. "7 real analysis posts were called hot_take and only 3 went the
-     other way" is a direction, not just an error rate. -->
-
-
+3 real `reaction` posts were called `anecdote` (and 2 went the other way), so the model
+hasn't learned my question 2 split: both labels are the writer's own experience, and the
+only difference, whether it just happened or is already over, is a time cue that often
+sits past the 128-token cut. A close second: 3 real `explainer` posts were called
+`reaction`.
 
 ---
 
