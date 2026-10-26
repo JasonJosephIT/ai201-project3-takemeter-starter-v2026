@@ -1,0 +1,217 @@
+{
+  "model": "facebook/bart-large-mnli",
+  "n": 33,
+  "seed": 42,
+  "held_out": true,
+  "used_definitions": false,
+  "scores": {
+    "n": 33,
+    "accuracy": 0.21212121212121213,
+    "f1_macro": 0.1236208236208236,
+    "per_label": {
+      "advertisement": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 6
+      },
+      "analysis": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 5
+      },
+      "anecdote": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 5
+      },
+      "explainer": {
+        "precision": 0.14285714285714285,
+        "recall": 0.16666666666666666,
+        "f1": 0.15384615384615383,
+        "support": 6
+      },
+      "hot_take": {
+        "precision": 0.1111111111111111,
+        "recall": 0.16666666666666666,
+        "f1": 0.13333333333333333,
+        "support": 6
+      },
+      "reaction": {
+        "precision": 0.29411764705882354,
+        "recall": 1.0,
+        "f1": 0.45454545454545453,
+        "support": 5
+      }
+    }
+  },
+  "predictions": [
+    {
+      "text": "Leiah closed unexpectedly tonight. Anyone know why?\n\nHad reservations at Leiah tonight at 6:30. Upon arrival the front doors were locked and we then realized there were no customers inside. We waited outside confused for a couple minutes and a police officer showed up and was let in to talk with a chef. We walked away with no answers and aside from being disappointed in beyond curious. Anyone knows what's up?",
+      "gold": "explainer",
+      "predicted": "reaction"
+    },
+    {
+      "text": "Holy shit that was the brightest rocket launch I have seen from my backyard in orlando\n\n&#x200B;",
+      "gold": "reaction",
+      "predicted": "reaction"
+    },
+    {
+      "text": "Turo (RICARDO FIGUEIREDO) BEWARE\n\nAt 5:22pm TODAY I gained access to this model 3 via the app. Screenshots for proof. I had a Uber drop me and my kids off. I installed my kid\u2019s car seats, got them in the car and the issues began.\n\nHost is dishonest.\n\nAs soon as I turned the car on, I get an alert \u201cRear tire tread depth low - Schedule service  \nInspect tires for rotation/replacement.\u201d   \nThe car was within 2 miles from my apartment. As I\u2019m driving back at 20mph, the car starts shaking. \n\nOnce I parked I sent the host the alerts and told him what\u2019s going on. His response was  \n \u201cPlease return the car immediately if you are not happy.  \nThe message is juts a reset.  \nThe car not was shaking  \nI can't have a bad review  \nI prefere you return the car and I'II refund you 100%.\u201d \n\nI think that response alone rests my case. \n\nBe careful renting from Turo. This is my first time ever having a host like this and a bad car. This car has 140K+ miles. I look up cars on Carvana often. A lot of these hosts are buying high mileage cars online and then renting them out on Turo. \n\nThe host picked up his vehicle, never told me had got it and did not end my trip. The original message after informing the host made me immediately call support. They offered to get me another vehicle and cover the difference. I declined.\n\nIn the past, I drove a Tesla model 3 from eastern NC to a city near Detroit (Turo rental). Didn\u2019t have any issues with how the car drove.\n\nI genuinely needed the car. I knew I should\u2019ve got a rental from the airport, but I didn\u2019t want to spend too much. I thought that\u2019s what Turo was for. A cheaper alternative. Turo itself isn\u2019t bad but hosts\u2026 you never know.",
+      "gold": "analysis",
+      "predicted": "hot_take"
+    },
+    {
+      "text": "Petition: \u201cTo The X who did Y\u201d Type posts should be banned.\n\nThese \u201cdear diary\u201d posts contribute next to nothing to the subreddit and are typically low effort.  All of Orlando doesn\u2019t live on reddit, so the chances of you actually reaching the person is virtually zero. What use do these posts even have beyond petty everyday squabbles?",
+      "gold": "hot_take",
+      "predicted": "reaction"
+    },
+    {
+      "text": "Scammers at Winter Park Village\n\nHeads up: there are some teenage boys running a scam near the Regal Cinema. They claim they\u2019re raising money for their basketball team by selling snacks but if you try to buy with your card, they\u2019ll charge you hundreds of dollars and hope you won\u2019t notice. Happened to my generous-hearted friend earlier this evening.",
+      "gold": "explainer",
+      "predicted": "explainer"
+    },
+    {
+      "text": "Since everyone was postiny about it being \"unfair\"\n\nOn the post relating to the Orange county Democratic voter guide for 2026 several people said it was unfair that the GOP guide was not also included. Personally I find this ridiculous thing to say to someone who's clearly trying to promote Democratic party. I am neither a Democrat or Republican so here is a link to the GOP voter guide, I will not be using either: \n\nhttps://gopguide.online/",
+      "gold": "hot_take",
+      "predicted": "hot_take"
+    },
+    {
+      "text": "With the recent ebike hysteria in Orlando, I feel like this is relevant to remember.\n\nI know this video is NYC specific but very much applies here too. What kills and injuries hundreds of Central Floridians every single year? Hint: it isn\u2019t ebikes.",
+      "gold": "analysis",
+      "predicted": "explainer"
+    },
+    {
+      "text": "Central Florida Metalcore Band Seeking Bassist w/ Harsh Vocals!\n\nWe are a 3 piece Central Florida metalcore band seeking a bassist with harsh vocals! We have 5 original songs written, tabbed, and ready to go for you (Input on Bass parts will be welcome!). \n\nThis would not be a huge comittment, we meet to practice once a week and are looking to start playing Live regularly in the coming months. Practice day is Sundays in Lakeland. We are currently discussing the possibility of pursuing a middle of the road location for practices, but I drive weekly from Altamonte and would be more than willing to figure out a carpooling arrangement for the time being. \n\nIf you are interested or would like a sample of our music, please reach out and we can connect further",
+      "gold": "advertisement",
+      "predicted": "explainer"
+    },
+    {
+      "text": "Uh\u2026what the heck is this?\n\nJust saw it 5 min ago",
+      "gold": "reaction",
+      "predicted": "reaction"
+    },
+    {
+      "text": "Gringos Locos Closure Got Messy",
+      "gold": "hot_take",
+      "predicted": "reaction"
+    },
+    {
+      "text": "Orlando had one of the lowest murder rates in 2025 of all major cities\n\nOrlando homicides fell to its lowest level in more than 50 years. It had a total of 10 murders last year, down from 24 the previous year. Orlando experienced the biggest drop in homicides in any major city in the country. Its murder rate was around 3 per 100,000, placing it among the lowest in the nation among major cities. Not only murders, but according to the article and source, all violent crime dropped significantly, with the exception of rapes, which saw a modest decrease.\n\nThoughts?\n\nhttps://www.orlandosentinel.com/2026/02/13/orlando-homicides-fell-to-lowest-level-in-more-than-50-years-police-say/\n\nhttps://majorcitieschiefs.com/wp-content/uploads/2026/02/MCCA-Violent-Crime-Report-2025-and-2024-Year-End.pdf",
+      "gold": "explainer",
+      "predicted": "hot_take"
+    },
+    {
+      "text": "Homeschool trip ideas in Central Florida?\n\nTrying to plan something in Florida that feels fun but still counts a little for homeschool. We've done the usual parks, museums, and zoo-type stuff, but I'm hoping for something more hands-on.\n\nAnimals, nature, boats, fishing, history, farm/ranch stuff, anything where the kids can move around and maybe remember one actual fact after would be great haha.",
+      "gold": "explainer",
+      "predicted": "reaction"
+    },
+    {
+      "text": "Brightline Could File for Chapter 11 Bankruptcy This Week\n\nThis shouldn\u2019t impact any train operations. At least not yet.",
+      "gold": "hot_take",
+      "predicted": "explainer"
+    },
+    {
+      "text": "Orlando deserves transportation that\u2019s fast, safe, and affordabe! We\u2019re hosting a rally for the STAR Rapid Transit Plan ahead of its first vote in front of the County Commission!\n\nWe\u2019re hosting a rally for the STAR Rapid Transit Plan ahead of its first vote in front of the County Commission! The STAR Plan would fund more trains and buses across Orange County, but we need your help to move it forward! \n\n\\*\\*Will you be able to attend the rally Tuesday, September 29th at 8AM at 201 S Rosalind Avenue?\\*\\*\n\nRsvp: https://www.mobilize.us/sunrisemovement/event/1019996/\n\nPetition: https://actionnetwork.org/letters/tell-orange-county-to-support-fast-and-safe-transit?clear\\\\\\_id=true&source=direct\\\\\\_link\n\n https://mobilize.us/s/U7FKLh/o.",
+      "gold": "advertisement",
+      "predicted": "hot_take"
+    },
+    {
+      "text": "My Tesla Making Jokes?\n\nThe emptiest lake in central Florida.  I\u2019ve always found it a little spooky.  I\u2019ve never seen anything like this on a Tesla map.  Tesla OG here -2020",
+      "gold": "reaction",
+      "predicted": "reaction"
+    },
+    {
+      "text": "Winter Park: Mail Fraud (PSA from Victim)\n\nI was a victim of Mail Fraud/Tampering, resulting in almost $5k in charges. They hit my neighborhood and some surrounding complexes. It\u2019s an organized group. \n\nI want everyone to know so you can protect yourself. Take care.",
+      "gold": "anecdote",
+      "predicted": "explainer"
+    },
+    {
+      "text": "Has anyone else noticed the boat rentals taking over Lake Ivanhoe?\n\nHas anyone else noticed the boat rentals at Lake Ivanhoe in downtown Orlando getting a little out of control?\n\nThere\u2019s a newer company that started operating around July, and they\u2019ve been taking up\u00a0**2 of the 3 trailer parking spots**at the public boat ramp with their trucks and trailers. From what I\u2019ve seen, they\u2019ll leave them there\u00a0**from sunup to sundown**, essentially using the public trailer spaces as their staging area for the entire day.\n\nOn top of that, their rental \u201ccar boats\u201d and jet skis are being left\u00a0**tied up along the small public dock for hours at a time while they wait for customers**. The dock is already tiny, so when most of it is occupied by rental boats, it leaves very little room for everyone else to load, unload, launch, or even fish.\n\nI\u2019m not against people running legitimate businesses or renting boats. If they have the proper permits, fine. But I\u2019m having a hard time understanding how a public boat ramp with only\u00a0**three trailer spaces**\u00a0can effectively have two of those spaces occupied all day by one commercial operation, while their rental boats also sit at the public dock for hours.\n\nMost small public boat ramps I\u2019ve used have some kind of short-term loading/unloading restriction, often around 10 minutes, specifically so one person or business can't tie up the dock all day.\n\nAm I the only one who has noticed this, or has anyone else had trouble getting a parking spot or access to the dock because of the rental companies?\n\nAnd if anyone actually knows what the rules are for commercial boat rentals using the Lake Ivanhoe public ramp, I\u2019d genuinely like to know. I\u2019m not looking to start some anti-business crusade. I just don't think a public boat ramp should effectively become a private staging area when there are only three trailer spaces to begin with.",
+      "gold": "analysis",
+      "predicted": "hot_take"
+    },
+    {
+      "text": "Hot take: Orlando needs more boring, comfortable third spaces open past 7\n\nMaybe I'm just getting older, but Orlando feels weirdly split between places you buy a ticket for and loud, spendy spots. I live on the east side and after work I'm usually hunting for something very unglamorous: a safe, calm place to sit for an hour with a puzzle book or my headphones. I don't want to drink, network, or fight for a table.\n\n  \nWhenever someone asks about third spaces the answers are basically the same: coffee shops, breweries, or parks. Coffee shops are great, but most close early and you don't want to be 'camping' if there's a line. Breweries aren't a third space if you don't drink or just want quiet. Parks are awesome in daylight, but after dark they can feel iffy.\n\n  \nThis feels less like a personal taste issue and more like a city design problem. We build tons of places for tourists, commuters, and events, but not many spots for residents to just exist indoors in the evening.\n\n  \nI'm not asking for freebies or to loiter. I would happily pay a small cover or membership for a clean, well-lit, staffed spot with comfortable seating, decent hours, and basic rules. Libraries exist, but they close too early if you work a normal day.\n\n  \nAnyone else feel this, or am I missing obvious options that aren't cafes or bars?",
+      "gold": "hot_take",
+      "predicted": "reaction"
+    },
+    {
+      "text": "Just a warning regarding The Rowan in Oviedo, FL\n\nIf you currently live here or are considering moving here, I would strongly encourage you to proceed with caution and document everything.\n\nIf you do choose to live here, I recommend getting important agreements and communications in writing and making sure your apartment has been thoroughly inspected and treated for pests before settling in.  \nI\u2019m sharing this based on my own experience. I have been dealing with an ongoing ant issue since moving in, it has been so disappointing how management has treated it.\n\nThis is a brand new apartment building, but I have experienced nothing but issues since moving in.\n\nI just wanted to get this out there as a warning to everyone. Red ant bites hurt and they will leave scars \ud83d\ude2d",
+      "gold": "anecdote",
+      "predicted": "explainer"
+    },
+    {
+      "text": "Accident on 414 and I-4\n\n**Accident happened** on the free way entry from **414** to **i-4**   \nIt happened in front of me And I couldn\u2019t even stop so each car went in a different direction and I had to actually squeeze between them to prevent Hitting anyone, my useless dash came did not record the event , the black car literally jumped from the left lane diagonally to the right lane in front of the white car , black car is **100**% at fault I wish I caught that on camera",
+      "gold": "reaction",
+      "predicted": "reaction"
+    },
+    {
+      "text": "Glass and Wood shelf, $80\n\nMust pick up from SORRENTO 32776.",
+      "gold": "advertisement",
+      "predicted": "reaction"
+    },
+    {
+      "text": "Southern Nights Phone Theft\n\nDid anyone else get their shit stolen this past Friday? I was pickpocketed while on the main dance floor and didn\u2019t notice until I was leaving :(. They keep turning my phone off and on and then took it to universal the next day. Sucks because I\u2019m always super careful but I let my guard down that night. Just posting as a reminder to always be cautious and don\u2019t be dumb like me!",
+      "gold": "anecdote",
+      "predicted": "reaction"
+    },
+    {
+      "text": "Is there a decent Grouper sandwich in Central Florida?\n\nI come from a beach town and there were hundreds of beach shack restaurants with amazing Grouper and fish sandwiches. Since living in Central Flordia I have had terrible luck finding a great fried or blackened fish sandwich. Do I just need to make the hour drive to the beaches when I want a fish sandwich and fries basket?",
+      "gold": "explainer",
+      "predicted": "reaction"
+    },
+    {
+      "text": "Central Florida rodent infestation cleanup: this before/after is insane\n\nWe purchased an EV so our Honda has been sitting in the driveway and I only drive it to work on the rare occasion that my husband has to go into the office and wants to drive the Leaf.  I noticed an unpleasant odor last time I drove it so I changed the cabin filter but the smell just got worse.\n\nThis weekend we opened the hood to find this nasty mess of rodent droppings. I sent a text to [Licona's Auto Detailing](https://liconasauto.com/) on Saturday.  Christ came out on Sunday and got to work (*didn't even make me feel embarrassed*). This is the result.  I'm blown away! \n\nThey have everything they need in their truck to do an amazing detail job without using our water or anything. It was very reasonably priced considering how utterly disgusting it was to begin with. If you're looking for a top notch detailer Licona's is it.",
+      "gold": "anecdote",
+      "predicted": "reaction"
+    },
+    {
+      "text": "Looking for some live jazz!\n\nHi everyone! \n\nIm the general manager of a restaurant in downtown and although ive been here awhile im not familiar with many local artists. \n\nAs the holiday season is approaching im looking for someone to play some live jazz music soon and if you're good it could be a reoccurring gig! \n\nTypical rate we pay is $100 an hour! We also provide some snacks as well as a couple drinks! \n\nWe are not a large restaurant so we're not looking for a huge ensemble of like 6 people haha you wouldn't fit. This would be ideally two people. \n\nIf you know anyone or you yourself can do this please reach out we love to support local artists!",
+      "gold": "advertisement",
+      "predicted": "explainer"
+    },
+    {
+      "text": "ASL Bingo Night; this Thursday (Northern Orlando)\n\nStudy these 25 signs for ASL bingo night this Thursday, October 15th at 6:30pm at Rita\u2019s Caf\u00e9 located at 187 E Crystal Lake Ave #1021 Lake Mary, Fl 32746. We are doing a series of the \u201c100 MOST functional\u201d ASL signs. Participation is free; we are partnering with Deaf Florida Inc for this Event. \n\nDeaf Florida is a 501(c) nonprofit organization that exists to empower, celebrate, and connect the d/Deaf, hard of hearing, d/DeafBlind, and signing community across Florida - creating community experiences that honor Deaf heritage, foster inclusion, and build no lasting belonging for individuals, families, and allies across the state of Florida. \n\nAs Weekly Free Events:  \nEVERY Friday 6-10pm Boardgame Night  \nEVERY Saturday 6-10pm Language Night (ASL, German, French, Japanese, Spanish, English, and Portuguese   \n\nHope to see you there! Rita\u2019s staff!",
+      "gold": "advertisement",
+      "predicted": "hot_take"
+    },
+    {
+      "text": "Tijuana Flats bowls are now half the size for the same price\n\nConsidering the fact that they also recently closed the location in my home town (port st lucie), at this point, I\u2019m wondering how much longer before they go out of business\u2026",
+      "gold": "analysis",
+      "predicted": "reaction"
+    },
+    {
+      "text": "I built a better Orlando happy hour website\n\n**I built a better Orlando happy hour website \ud83c\udf7b**\n\nIf you\u2019ve ever tried finding happy hours around Orlando, you\u2019ve probably come across GoldenBuzz. It\u2019s useful, but I always felt like there was a lot of room to make the experience better.\n\nSo I built **Pour Happy**: [**pourh.com**](http://pourh.com/)\n\nThe goal is to make finding a happy hour around Orlando ridiculously easy.\n\nYou can:  \nBrowse happy hours by area  \nSee the actual days, times, drinks, and food specials  \nSort by top voted, A\u2013Z, starting soon, or happening right now  \nUpvote/downvote spots  \nSave favorites  \nSubmit happy hours that are missing  \nFind daily specials that change depending on the day\n\nI\u2019m still adding more restaurants and improving things, but I think it\u2019s already a much better experience than the other Orlando happy hour sites I\u2019ve used. Right now only admins can login :)\n\nWould love some feedback from other Orlando people. What restaurants or bars am I missing? \ud83c\udf7b\n\n[**pourh.com**](http://pourh.com/)",
+      "gold": "advertisement",
+      "predicted": "hot_take"
+    },
+    {
+      "text": "MCO right now\n\nUsed MCO Reserve. No line, dedicated TSA. Took 3 minutes. \n\nPretty empty shuttle. \n\nAirside: total shit show. B. Gates 70-79. People are camped out in the food court. The gates are packed. Every gate is selling seats due to being over sold. The one next to me is oversold by 11.\n\nStanding room only at every gate. \n\nNo one looks happy. Except for me. Because I have my MnMs and a coke for my breakfast",
+      "gold": "reaction",
+      "predicted": "reaction"
+    },
+    {
+      "text": "Hidden Gem: \u201cThat One Spot\u201d Burger Joint\n\nTucked away in their new location in West Oaks Mall(yeah that old mall thats now the DMC in Ocoee haha), That One Spot. A fire burger joint I\u2019ve been going to for 7+ years. They have won awards for \u201cOrlando\u2019s Best Burger\u201d in the past and have consistently always thrown down some of the best burgers I\u2019ve had.\n\nWent there today with a few friends, I got the Crunch Burger (the one with onion rings) and the sweet potato fries with razzberry mayo (weird sounding at first but that perfect balance if sweet and savory)\n\nMy buddy got the Bayou (one of my other favorites but I get it \u201cspiced up\u201d which they add brisket, Cajun sauce, and siracha\u2026 seriously my other go.)\n\nHis girl got the \u201cThat One Salmon Classic\u201d another absolute banger if youre not feeling beef but still want a sandwich annnd then a side if fries. A must have on the menu at least once.\n\nJust wanna see these guys thrive, times been tough and these guys are still making some of the best food in Orlando. Burgers are always juicy, made to order, fries always fresh, the flavors are always on point.\n\nCheck em out, thank me later \ud83e\udd1c\ud83e\udd1b",
+      "gold": "anecdote",
+      "predicted": "hot_take"
+    },
+    {
+      "text": "785 jobs eliminated in Osceola County School District\n\nGullible charter-school parents are destroying public education.",
+      "gold": "hot_take",
+      "predicted": "reaction"
+    },
+    {
+      "text": "Orlando Made National News Because of the Nazis at KIA Center\n\nOrlando made national news for a shameful reason.  [Here is the Washington Post article (gift link).](https://wapo.st/4qQyXIA)  I'm sure it will be picked up by other outlets as well.",
+      "gold": "explainer",
+      "predicted": "hot_take"
+    },
+    {
+      "text": "Winter Park's new \"Dog Park Tax\": $2-$3/hr for Orlando residents\n\nHey r/Orlando,\n\nIf you use Lake Baldwin Park for anything, you need to know about this.\n\nOn September 9, the Winter Park City Commission voted 5-0 to move forward with a paid parking pilot at Lake Baldwin Park and Dinky Dock, targeting Spring 2027. ([Orlando Weekly coverage here](https://www.orlandoweekly.com/news/orlando-area-news/winter-park-advances-plan-for-paid-parking-at-lake-baldwin-park-dinky-dock/)) ([Bungalower coverage here](https://bungalower.com/2026/09/14/not-from-winter-park-parking-at-lake-baldwin-and-dinky-dock-could-cost-2-3-an-hour/))\n\nHere's how it works:\n\n* If you don't live in Winter Park: $2 to $3 per hour, or $20/day, paid through an app\n* If you do live in Winter Park: free, but you have to register your car and prove residency every year (capped at 2 vehicles per household)\n\nI visit this park twice a day with my two Labs. I live in Orlando, two blocks from the Winter Park line. This park is the highlight of my day.\n\n**Here's what actually happens at this park every morning.** The regulars are almost all retirees. Fixed incomes. Same people, same dogs, same benches. For a lot of them this is their only daily social interaction. Most of them don't live in Winter Park. At $2 to $3 an hour, twice a day, that's $120 to $180 a month. They can't afford that. They'll stop coming.\n\n**The city says Winter Park taxpayers are subsidizing Orlando visitors.** Except Winter Park didn't buy this land. The 23 acres were given to the city in 1972 through a federal program and a donation from the Catholic Diocese. Development was funded by a state grant. The trail was built with FDOT money. The playground was built by a private corporate grant. All of us paid for this park, not just Winter Park property owners.\n\n**I'm not a lawyer, but there's a state rule that seems to directly address this.** Florida Administrative Code Rule 62D-5.059(6) says that parks built with state recreation grants can't charge non-residents more just because they don't pay local taxes. The city has to prove that out-of-town visitors cause a specific additional cost burden that residents don't. They haven't done that. Their entire argument on the record is \"they don't pay our property taxes,\" which is exactly the reasoning this rule restricts.\n\n**The revenue math is a joke.** The city projects $100,000 in gross revenue. Their budget is $247 million. That's less than 0.05%. And that's before the app vendors, payment processors, enforcement staff, and admin costs take their cut. The net might be $40k to $60k. That's not a revenue strategy. That's a rounding error.\n\n**The spillover into neighborhoods is guaranteed.** Due to the geography around the lake, there are only a handful of residential streets nearby. Those streets are going to feel this immediately. Nobody is paying $3 to walk their dog for 30 minutes when free parking is a few blocks away. **The Saturday morning run club will just park somewhere else** because they're going out for a run anyway. What's an extra two or three blocks when you're already running? Winter Park's own staff admitted during the meeting that spillover is a real possibility.\n\n**The volunteer group that actually helps maintain this park wasn't even consulted.** The Friends of Winter Park Dog Park is a nonprofit that organizes cleanups, fills holes, picks up trash, and maintains grounds. They take real burden off the city's parks staff. A lot of those volunteers are the same non-residents this proposal would charge.\n\n**And Winter Park already tried this.** In 2010 they approved a $75 per dog fee at Lake Baldwin. Five months later they voted 5-0 to repeal it after community backlash. Same park, same idea.\n\n**If you care about this, here's what you can do right now (60 seconds):**\n\nSend a short, respectful email to the full Commission telling them you oppose paid parking at Lake Baldwin. They still have to draft and vote on the formal ordinance before this becomes law.\n\n* **Email the Commission:** [MayorandCommissioners@cityofwinterpark.org](mailto:MayorandCommissioners@cityofwinterpark.org)\n* **CC the City Clerk (gets it on public record):** [cityclerk@cityofwinterpark.org](mailto:cityclerk@cityofwinterpark.org)\n\nYou don't have to write a novel. Just tell them who you are, that you use the park, and that you oppose paid parking. Every email counts.",
+      "gold": "analysis",
+      "predicted": "reaction"
+    }
+  ]
+}
