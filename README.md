@@ -281,8 +281,7 @@ one of Jev's choices. Each row's `note` column records Jev's confidence for that
 | F1 — `label_two` |  |  |  |
 
 **What I predicted before I looked:**
-<!-- Milestone 1 asks you to write this BEFORE seeing the trained numbers. A
-     prediction made afterwards isn't one. -->
+The trained model will beat the baseline on `advertisement` and `hot_take`, where the label shows in the wording (prices, "free", events; all-caps complaints), and lose or tie on `explainer` and `anecdote`, where my definitions describe the post's purpose rather than its words.
 
 **What the gap actually means:**
 <!-- If the baseline matched your trained model, your fine-tuning added
