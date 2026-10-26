@@ -54,33 +54,95 @@
      The decision rule is worth a point on its own and it's the thing most
      people leave out. Every taxonomy has a hardest boundary. Name yours. -->
 
-### `label_one`
+Every post gets exactly one label by answering four questions in order. The first
+"yes" decides it, so two labels can never both be true.
 
-**Definition:**
+0. **Is the post selling something?** It promotes a business, product, service, event
+   or giveaway the writer is connected to and invites readers to buy, visit, sign up or
+   attend → `advertisement`.
+1. **Does the post take a position?** A judgment about how things are or should be
+   that a reader could disagree with — not just the writer's own feelings.
+   Yes → `analysis` if a checkable fact is a reason for the position, otherwise `hot_take`.
+2. **No position. Is it about something the writer personally lived through?**
+   Yes → `reaction` if it is happening now or just happened (hours, not weeks) and the
+   post is the writer's response to it; `anecdote` if it is already over and told as a story.
+3. **Neither.** It asks for or passes on information → `explainer`.
+
+### `analysis`
+
+**Definition:** Takes a position, and a specific, checkable fact (a number, date, quote,
+record or named comparison) is a reason for it — remove the fact and the argument falls apart.
 
 **Example 1:**
->
+> Orange County schools finalizes $7.9B budget, district plans additional $8.5M in cuts. I had to do some math tonight. This budget is $7.9 billion. My hometown in Illinois is much smaller…
 
 **Example 2:**
->
+> An Investigation into AdventHealth: "Healing Ministry" or Billion-Dollar Monopoly? AdventHealth, one of the largest hospital systems in the U.S., operates under the mission "to extend the healing ministry of Christ." But a deep dive…
 
-### `label_two`
+### `hot_take`
 
-**Definition:**
+**Definition:** Takes a confident position about the world with no load-bearing support; any
+number in it is decoration on a conclusion already reached.
 
 **Example 1:**
->
+> Resort fees are the biggest scam the hotel industry has ever come up with. I hope he takes them to the cleaners! 😤
 
 **Example 2:**
->
+> Am I the only one who notices this, but do people completely forget how to walk in public here? Seems like 80% of people walking around the shops love to take up the entire walkway…
+
+### `reaction`
+
+**Definition:** Takes no position; the writer is responding to something they are seeing or
+just experienced, in the moment — feeling or first-hand report, not a story.
+
+**Example 1:**
+> Holy shit that was the brightest rocket launch I've seen from my backyard in Orlando
+
+**Example 2:**
+> MCO right now. Used MCO Reserve. No line, dedicated TSA. Took 3 minutes… Airside: total shit show. Gates 70-79. People are camped out in the food court.
+
+### `explainer`
+
+**Definition:** Takes no position and is not about the writer's own experience; it asks for
+or passes on information — a question, a request for recommendations, a how-to, or news.
+
+**Example 1:**
+> Garage epoxy recommendation. I'm looking to have epoxy work done and wanted to sanity-check pricing. Is a budget under $1,000 reasonable for this type of job?
+
+**Example 2:**
+> You can watch movies and TV for free with an Orange County Library Card. If you didn't already know…
+
+### `anecdote`
+
+**Definition:** Takes no position; the writer tells a story about something they experienced
+that is already over, told for the story itself.
+
+**Example 1:**
+> We food shop every Friday morning, and every Friday morning a crow is perched on the highest point of the Publix sign in front of the store… just yapping like it's holding court.
+
+**Example 2:**
+> I work over in the area and stop by sometimes, usually around 4:00 pm on weekdays. There's a security guard I always see. He's always on high alert and will appear out of nowhere.
+
+### `advertisement`
+
+**Definition:** Promotes a business, product, service, event or giveaway the writer is
+connected to (owns, works for, sells, organises) and invites readers to buy, visit, sign up
+or attend. A customer recommending a place they like is not an ad.
+
+**Example 1:**
+> Free Live Band Karaoke Hey everyone, wanted to post here for those who were interested in my last post about live band Karaoke. The band will be doing live band karaoke at Chronic Guru on Pine St with no cover or fees! T…
+
+**Example 2:**
+> Free medical marijuana cards for veterans All the details are in this flyer
 
 ### The hardest boundary
 
-**Which two labels:**
+**Which two labels:** `analysis` vs `explainer`. Orlando posts often share news packed with
+facts (budgets, votes, fees), so "has facts" can't be the test.
 
-**The decision rule I used every time:**
-<!-- e.g. "If the post names a specific checkable fact, it's `analysis`, even
-     if the tone is heated." -->
+**The decision rule I used every time:** Ask "so what does the writer want me to think?" If
+the facts lead to a judgment (this is wrong, a waste, a scam, should change), it's `analysis`.
+If the facts are the whole point (what happened, what it costs, how to do it), it's `explainer`.
 
 
 
